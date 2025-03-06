@@ -9,6 +9,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// CORS configuration
+const corsOptions = {
+  origin: "http://task-manager-kodegod.vercel.app", 
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true,
+};
+
 // Middleware
 app.use(cors());
 app.use(express.json());
