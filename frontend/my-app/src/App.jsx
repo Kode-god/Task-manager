@@ -11,7 +11,7 @@ function App () {
   // Fetch all tasks from the backend
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/tasks");
+      const response = await axios.get("https://task-manager-6wff.onrender.com/api/tasks");
       setTasks(response.data);
     } catch (error) {
       console.error("Error fetching tasks:", error);
@@ -23,10 +23,10 @@ function App () {
     try {
       if (editingTask) {
         // Update task
-        await axios.put(`http://localhost:5000/api/tasks/${editingTask._id}`, task);
+        await axios.put(`https://task-manager-6wff.onrender.com/api/tasks${editingTask._id}`, task);
       } else {
         // Add new task
-        await axios.post("http://localhost:5000/api/tasks", task);
+        await axios.post("https://task-manager-6wff.onrender.com/api/tasks", task);
       }
       fetchTasks(); // Refresh the task list
       setEditingTask(null); // Clear the editing state  remove later
@@ -38,7 +38,7 @@ function App () {
   // Delete a task
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+      await axios.delete(`https://task-manager-6wff.onrender.com/api/tasks${id}`);
       fetchTasks(); // Refresh the task list
     } catch (error) {
       console.error("Error deleting task:", error);
