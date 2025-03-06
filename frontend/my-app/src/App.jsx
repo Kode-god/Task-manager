@@ -23,7 +23,7 @@ function App () {
     try {
       if (editingTask) {
         // Update task
-        await axios.put(`https://task-manager-6wff.onrender.com/api/tasks${editingTask._id}`, task);
+        await axios.put(`https://task-manager-6wff.onrender.com/api/tasks/${editingTask._id}`, task);
       } else {
         // Add new task
         await axios.post("https://task-manager-6wff.onrender.com/api/tasks", task);
@@ -38,7 +38,7 @@ function App () {
   // Delete a task
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://task-manager-6wff.onrender.com/api/tasks${id}`);
+      await axios.delete(`https://task-manager-6wff.onrender.com/api/tasks/${id}`);
       fetchTasks(); // Refresh the task list
     } catch (error) {
       console.error("Error deleting task:", error);
